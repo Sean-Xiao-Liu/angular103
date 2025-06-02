@@ -4,9 +4,13 @@
       <!-- When use @Input decorator -->
       <!-- <img [src]="image.src" [alt]="image.alt" />
       <h2>{{ title }}</h2> -->
+
       <!-- When use input signal -->
       <img [src]="image().src" [alt]="image().alt" />
       <h2>{{ title() }}</h2>
     </header>
+    <!-- ng-content is used to insert the content of the component into the dashboard-item component, 
+     this is also called content projection -->
+    <ng-content />
   </article>
 </div>
