@@ -4,14 +4,14 @@ import { ServerStatusComponent } from './dashboard/server-status/server-status.c
 import { TicketsComponent } from './dashboard/tickets/tickets.component';
 import { TrafficComponent } from './dashboard/traffic/traffic.component';
 import { DashboardItemComponent } from './dashboard/dashboard-item/dashboard-item.component';
-import { NewTicketComponent } from './dashboard/tickets/new-ticket/new-ticket.component';
+
 
 @Component({
   selector: 'app-root',
   standalone: true,
   templateUrl: './app.component.html',
   imports: [HeaderComponent, ServerStatusComponent, TicketsComponent, 
-    TrafficComponent, DashboardItemComponent, NewTicketComponent]
+    TrafficComponent, DashboardItemComponent]
 })
 export class AppComponent {
   dummyTrafficData = [
