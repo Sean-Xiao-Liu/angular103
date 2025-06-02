@@ -9,6 +9,7 @@ import { ButtonComponent } from '../../../shared/button/button.component';
 })
 export class NewTicketComponent {
   onSubmit() {
+    alert('submit');
     console.log('submit');
   }
 }
