@@ -3,7 +3,15 @@
     <img src="list.png" alt="A list of items" />
     <h2>Support Tickets</h2>
   </header> -->
-  <div id="status">
-    <p>Todo...</p>
+  
+
+  <div id="traffic">
+    <p>Last 7 days</p>
+
+    <div id="chart">
+      @for (dataPoint of dummyTrafficData; track dataPoint.id) {
+      <div [style.height]="(dataPoint.value / maxTraffic) * 100 + '%'"></div>
+      }
+    </div>
   </div>
 
