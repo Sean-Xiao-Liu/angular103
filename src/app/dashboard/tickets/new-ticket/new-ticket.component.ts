@@ -8,7 +8,7 @@ import { FormsModule } from '@angular/forms';
   standalone: true,
   imports: [ButtonComponent, ControlComponent, FormsModule],
   templateUrl: './new-ticket.component.html',
-  styleUrl: './new-ticket.component.css'
+  styleUrls: ['./new-ticket.component.css', '../../../shared/button/button.component.css', '../../../shared/control/control.component.css'] 
 })
 export class NewTicketComponent {
   onSubmit() {

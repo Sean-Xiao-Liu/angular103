@@ -6,7 +6,7 @@ import { ButtonComponent } from '../shared/button/button.component';
   standalone: true,
   imports: [ButtonComponent],
   templateUrl: './header.component.html',
-  styleUrl: './header.component.css'
+  styleUrls: ['./header.component.css','../shared/button/button.component.css']
 })
 export class HeaderComponent {
   onLogout() {
