@@ -1,7 +1,7 @@
 import { Component, Input, ViewEncapsulation } from '@angular/core';
 
 @Component({
-  selector: 'app-button',
+  selector: 'button[app-button],a[app-button]',
   standalone: true,
   imports: [],
   templateUrl: './button.component.html',
@@ -9,7 +9,7 @@ import { Component, Input, ViewEncapsulation } from '@angular/core';
   // allow the component to use the styles of the parent component
   // so the parent component can override the styles of the button component
   // and don't need to state the style url in the parent component
-  encapsulation: ViewEncapsulation.None
+  // encapsulation: ViewEncapsulation.None
 })
 export class ButtonComponent {
   @Input() label!: string;
