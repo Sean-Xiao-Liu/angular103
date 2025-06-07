@@ -1,7 +1,7 @@
 import { Component, Input, ViewEncapsulation } from '@angular/core';
 
 @Component({
-  selector: 'button[app-button]',
+  selector: 'app-button',
   standalone: true,
   imports: [],
   templateUrl: './button.component.html',
