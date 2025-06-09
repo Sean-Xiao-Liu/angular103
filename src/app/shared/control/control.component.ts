@@ -9,7 +9,7 @@ import { Component, Input, ViewEncapsulation } from '@angular/core';
   // Emulated is the default encapsulation strategy, it allows the component to use the styles of the parent component
   // None is the strategy that allows the component to use the styles of the parent component
   // ShadowDom is the strategy that allows the component to use the styles of the parent component
-  // encapsulation: ViewEncapsulation.None,
+  encapsulation: ViewEncapsulation.None,
   host: {
     // add class attribute to the host element
     class: 'control' 
