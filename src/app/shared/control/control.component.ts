@@ -1,4 +1,4 @@
-import { Component, Input, ViewEncapsulation } from '@angular/core';
+import { Component, HostBinding, HostListener, Input, ViewEncapsulation, ElementRef, inject } from '@angular/core';
 
 @Component({
   selector: 'app-control',
@@ -16,5 +16,15 @@ import { Component, Input, ViewEncapsulation } from '@angular/core';
   }
 })
 export class ControlComponent {
+  // // add class attribute to the host element instead of using the host property in @Component decorator
+  // @HostBinding('class') className = 'control';
+  @HostListener('click', ['$event']) onClick(event: Event) {
+    // console.log('clicked', event);
+    // access the native element by using element reference
+    console.log('native element: ', this.elementRef.nativeElement);
+  }
   @Input({ required: true }) label!: string;
+
+  // inject the elementRef to get the native element
+  private elementRef = inject(ElementRef);
 }
