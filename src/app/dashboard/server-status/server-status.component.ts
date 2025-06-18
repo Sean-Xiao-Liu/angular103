@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 
 @Component({
   selector: 'app-server-status',
@@ -11,17 +11,31 @@ import { Component, Input } from '@angular/core';
     id: 'status'
   }
 })
-export class ServerStatusComponent {
+export class ServerStatusComponent implements OnInit, OnDestroy {
   // @Input is used to pass data from parent component to child component, 
   // in this case, the parent component is the dashboard component 
   // and the child component is the server-status component
-  @Input() currentStatus = 'offline';
-  @Input() statusClassValue = 'status-offline';
-
+  @Input() currentStatus = '';
+  @Input() statusClassValue = '';
+  options = ['online', 'offline', 'unknown'];
   onStatusClick() {
-    const options = ['online', 'offline', 'unknown'];
-    this.currentStatus = getRandomString(options, this.currentStatus);
+  
+    this.currentStatus = getRandomString(this.options, this.currentStatus);
     // this.statusClassValue = getStatusClassValue(this.currentStatus);
+  }
+
+  // @ngOnInit is used to initialize the component
+  // in this case, the statusClassValue is initialized with the statusClassValue of the currentStatus
+  ngOnInit() {
+    console.log('ServerStatusComponent initialized');
+    this.statusClassValue = getStatusClassValue(this.currentStatus);
+  }
+
+  ngOnDestroy() {
+    this.currentStatus = '';
+    this.statusClassValue = '';
+    this.options = [];
+    console.log('ServerStatusComponent destroyed');
   }
 }
 

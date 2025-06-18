@@ -37,7 +37,7 @@ export class TrafficComponent {
       value: 488,
     },
     {
-      id: 'd47',
+      id: 'd7',
       value: 589,
     },
   ];
