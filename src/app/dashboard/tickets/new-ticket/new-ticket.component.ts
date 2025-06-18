@@ -11,10 +11,16 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./new-ticket.component.css']
 })
 export class NewTicketComponent {
-  onSubmit() {
+  // onSubmit() {
+  //   console.log('submit button clicked');
+  //   console.log("entered title: ", this.enteredTitle);
+  //   console.log("entered request: ", this.enteredRequest);
+  // }
+
+  onSubmit(enteredTitle: HTMLInputElement, enteredRequest: HTMLTextAreaElement) {
     console.log('submit button clicked');
-    console.log("entered title: ", this.enteredTitle);
-    console.log("entered request: ", this.enteredRequest);
+    console.log("entered title: ", enteredTitle.value);
+    console.log("entered request: ", enteredRequest.value);
   }
 
   enteredTitle = '';
