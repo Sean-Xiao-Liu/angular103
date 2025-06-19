@@ -11,7 +11,7 @@
     </p>
 </form> -->
 
-<form (ngSubmit)="onSubmit(enteredTitle, enteredRequest)">
+<form (ngSubmit)="onSubmit(enteredTitle, enteredRequest)" #form>
     <app-control label="Title">
         <!-- # is used to create a reference to the input element, which is a temporary local reference variable -->
         <input name="title" id="title" #enteredTitle />
