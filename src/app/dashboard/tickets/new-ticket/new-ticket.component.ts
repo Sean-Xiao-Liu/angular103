@@ -19,6 +19,8 @@ export class NewTicketComponent {
 
   // ViewChild is used to get a reference to the form element
   // so the component can access the form element without passing it as a parameter
+  // also viewchild only works when element is part of the template, 
+  // it won't work if the element is projected like ng-content 
   // the question mark is used to make the form optional
   @ViewChild('form') form ?: ElementRef<HTMLFormElement>;
 

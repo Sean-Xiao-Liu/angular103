@@ -1,4 +1,4 @@
-import { Component, HostBinding, HostListener, Input, ViewEncapsulation, ElementRef, inject } from '@angular/core';
+import { Component, HostBinding, HostListener, Input, ViewEncapsulation, ElementRef, inject, ContentChild } from '@angular/core';
 
 @Component({
   selector: 'app-control',
@@ -12,7 +12,7 @@ import { Component, HostBinding, HostListener, Input, ViewEncapsulation, Element
   encapsulation: ViewEncapsulation.None,
   host: {
     // add class attribute to the host element
-    class: 'control' 
+    class: 'control'
   }
 })
 export class ControlComponent {
@@ -21,10 +21,19 @@ export class ControlComponent {
   @HostListener('click', ['$event']) onClick(event: Event) {
     // console.log('clicked', event);
     // access the native element by using element reference
-    console.log('native element: ', this.elementRef.nativeElement);
+    // console.log('native element: ', this.elementRef.nativeElement);
+    if (this.input) {
+      this.input.nativeElement.focus();
+      console.log('input: ', this.input.nativeElement.value);
+    }
   }
   @Input({ required: true }) label!: string;
 
   // inject the elementRef to get the native element
   private elementRef = inject(ElementRef);
+
+  @ContentChild('content') content?: ElementRef<HTMLElement>;
+  // the content child is a reference to the element that is projected into the control component
+  // the element can be input or textarea
+  @ContentChild('input') input?: ElementRef<HTMLInputElement | HTMLTextAreaElement>;
 }
