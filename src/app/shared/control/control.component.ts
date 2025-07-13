@@ -1,4 +1,4 @@
-import { Component, HostBinding, HostListener, Input, ViewEncapsulation, ElementRef, inject, ContentChild } from '@angular/core';
+import { Component, HostBinding, HostListener, Input, ViewEncapsulation, ElementRef, inject, ContentChild, AfterContentInit } from '@angular/core';
 
 @Component({
   selector: 'app-control',
@@ -15,7 +15,7 @@ import { Component, HostBinding, HostListener, Input, ViewEncapsulation, Element
     class: 'control'
   }
 })
-export class ControlComponent {
+export class ControlComponent implements AfterContentInit {
   // // add class attribute to the host element instead of using the host property in @Component decorator
   // @HostBinding('class') className = 'control';
   @HostListener('click', ['$event']) onClick(event: Event) {
@@ -36,4 +36,8 @@ export class ControlComponent {
   // the content child is a reference to the element that is projected into the control component
   // the element can be input or textarea
   @ContentChild('input') input?: ElementRef<HTMLInputElement | HTMLTextAreaElement>;
+
+  ngAfterContentInit(): void {
+    console.log('after content init');
+  }
 }
